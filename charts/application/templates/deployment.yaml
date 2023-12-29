@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.app.service.name }}
+spec:
+  replicas: 2
+  progressDeadlineSeconds: 600
+  selector:
+    matchLabels:
+      app: {{ .Values.app.service.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.app.service.name }}
+    spec:
+      {{- if .Values.iam.service_account_name }}
+      serviceAccountName:  {{ .Values.iam.service_account_name }}
+      {{ end }}
+      terminationGracePeriodSeconds: 30
+      containers:
+        - image: "{{ .Values.image.url }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
+          imagePullPolicy: Always
+          name: {{ .Values.app.service.name }}
+          ports:
+            - containerPort: {{ .Values.app.pod.port }}
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.app.pod.healthCheckPath }}
+              port: {{ .Values.app.pod.port }}
+            timeoutSeconds: 10
+            initialDelaySeconds: 10
+          readinessProbe:
+            httpGet:
+              path: {{ .Values.app.pod.healthCheckPath }}
+              port: {{ .Values.app.pod.port }}
+            timeoutSeconds: 10
+            initialDelaySeconds: 10
+            successThreshold: 2
+          resources:
+            requests:
+              memory: {{ .Values.app.resources.requests.memory }}
+              cpu: {{ .Values.app.resources.requests.cpu }}
+            limits:
+              memory: {{ .Values.app.resources.limits.memory }}
+              cpu: {{ .Values.app.resources.limits.cpu }}
+          envFrom:
+            - secretRef:
+                name: {{ .Values.app.secretName }}
+          securityContext:
+            capabilities:
+              drop:
+                - all
+      restartPolicy: Always
+status: { }

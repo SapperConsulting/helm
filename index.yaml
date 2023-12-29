@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  application:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-12-29T09:58:41.195014-06:00"
+    description: Sapper application helm chart
+    digest: cf5e3ae2f828f65b31bc99847502e949d6e1d18eaf6702aab9f566c475146ae8
+    name: application
+    type: application
+    urls:
+    - packages/application-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-12-29T09:58:41.194625-06:00"
