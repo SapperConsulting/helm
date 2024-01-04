@@ -2,6 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.app.service.name }}
+  {{- if .Values.app.annotations }}
+  annotations:
+  {{ .Values.app.annotations | toYaml | indent 4 }}
+  {{- end }}
 spec:
   replicas: 2
   progressDeadlineSeconds: 600
