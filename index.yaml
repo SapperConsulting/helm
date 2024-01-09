@@ -3,7 +3,17 @@ entries:
   application:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-01-04T14:36:04.110637-06:00"
+    created: "2024-01-09T08:10:42.100768-06:00"
+    description: Sapper application helm chart
+    digest: 9be687e3800f70af93da11a09fd8d8c3d3972104f0d6a8a64fd2adeec5113a6f
+    name: application
+    type: application
+    urls:
+    - packages/application-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-01-09T08:10:42.100634-06:00"
     description: Sapper application helm chart
     digest: 07f2789ad32cc7136f08e404004ab8e9fce28780a8a9e4b7db9b4ea1103f077e
     name: application
@@ -13,7 +23,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-01-04T14:36:04.110506-06:00"
+    created: "2024-01-09T08:10:42.10032-06:00"
     description: Sapper application helm chart
     digest: 4563ecc214c265445a173f4d3786aa4f80fe06f1761946c5c6873036dfa6b4a2
     name: application
@@ -23,7 +33,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-01-04T14:36:04.11038-06:00"
+    created: "2024-01-09T08:10:42.100033-06:00"
     description: Sapper application helm chart
     digest: db950d124b02362e32a115d7d300632af88fdca2d4c6e573abcb343c5a812a53
     name: application
@@ -33,7 +43,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-01-04T14:36:04.110122-06:00"
+    created: "2024-01-09T08:10:42.09976-06:00"
     description: Sapper application helm chart
     digest: de3535b1c6e5422bda70c34fa4ede05340fdc49f25be9818dd0c7c159e2f3522
     name: application
@@ -41,4 +51,4 @@ entries:
     urls:
     - packages/application-0.1.0.tgz
     version: 0.1.0
-generated: "2024-01-04T14:36:04.108994-06:00"
+generated: "2024-01-09T08:10:42.09833-06:00"

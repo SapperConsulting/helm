@@ -25,6 +25,9 @@ spec:
         - image: "{{ .Values.image.url }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
           imagePullPolicy: Always
           name: {{ .Values.app.service.name }}
+          {{- if .Values.app.command }}
+          command: {{ .Values.app.command }}
+          {{- end }}
           ports:
             - containerPort: {{ .Values.app.pod.port }}
           livenessProbe:
