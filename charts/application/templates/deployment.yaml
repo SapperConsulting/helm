@@ -53,5 +53,9 @@ spec:
           envFrom:
             - secretRef:
                 name: {{ .Values.app.secretName }}
+          securityContext:
+            capabilities:
+              drop:
+                - all
       restartPolicy: Always
 status: { }
