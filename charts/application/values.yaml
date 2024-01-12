@@ -15,6 +15,7 @@ app:
       cpu: "125m"
   secretName:
   annotations:
+  is_client: false
 
 image:
   name:
