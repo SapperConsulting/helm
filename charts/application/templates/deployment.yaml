@@ -58,6 +58,10 @@ spec:
           envFrom:
             - secretRef:
                 name: {{ .Values.app.secretName }}
+          {{ if .Values.app.distSecretName }}
+            - secretRef:
+                name: { { .Values.app.distSecretName } }
+          {{ end }}
           {{ if .Values.app.is_client }}
           securityContext:
             allowPrivilegeEscalation: false
