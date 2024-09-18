@@ -57,9 +57,9 @@ spec:
               cpu: {{ .Values.app.resources.limits.cpu }}
           envFrom:
             - secretRef:
-                name: {{ .Values.app.secretName }}
-            - secretRef:
                 name: {{ .Values.app.distSecretName }}
+            - secretRef:
+                name: { { .Values.app.secretName } }
           {{ if .Values.app.is_client }}
           securityContext:
             allowPrivilegeEscalation: false
