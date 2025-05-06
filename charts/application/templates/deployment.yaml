@@ -17,6 +17,13 @@ spec:
       labels:
         app: {{ .Values.app.service.name }}
     spec:
+      tolerations:
+        - key: node_group_type
+          operator: Equal
+          value: on_demand_main
+          effect: NoSchedule
+      nodeSelector:
+        node_group_type: on_demand_main
       {{- if .Values.iam.service_account_name }}
       serviceAccountName:  {{ .Values.iam.service_account_name }}
       {{ end }}
