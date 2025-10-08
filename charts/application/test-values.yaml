@@ -1,0 +1,39 @@
+image:
+  name: udab-server
+  url: 620167017830.dkr.ecr.us-east-1.amazonaws.com
+  tag: stage
+app:
+  command: ["./run_remote.sh"]
+  pod:
+    port: 8000
+    healthCheckPath: /
+  service:
+    name: udab-server-41
+    protocol: TCP
+    port: 8000
+  resources:
+    requests:
+      memory: "1024Mi"
+      cpu: "500m"
+    limits:
+      memory: "1024Mi"
+      cpu: "500m"
+  secretName: udab-server-41-j3jz
+  distSecretName: udab-server-talk-track-mvp-dist
+  annotations:
+    secret.reloader.stakater.com/reload: "udab-server-41-j3jz"
+
+syncWave:
+  deployment: 2
+
+jobs:
+  - name: db-migration
+    syncWave: 1
+    command: ["python", "manage.py", "migrate"]
+    resources:
+      requests:
+        memory: "512Mi"
+        cpu: "250m"
+      limits:
+        memory: "1024Mi"
+        cpu: "500m"

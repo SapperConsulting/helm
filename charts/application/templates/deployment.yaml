@@ -2,10 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.app.service.name }}
-  {{- if .Values.app.annotations }}
   annotations:
-  {{ .Values.app.annotations | toYaml | indent 4 }}
-  {{- end }}
+    argocd.argoproj.io/sync-wave: "{{ .Values.syncWave.deployment | default 2 }}"
+    {{- if .Values.app.annotations }}
+{{ .Values.app.annotations | toYaml | indent 4 }}
+    {{- end }}
 spec:
   replicas: 2
   progressDeadlineSeconds: 600

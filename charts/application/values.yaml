@@ -26,3 +26,18 @@ image:
 iam:
   service_account_role: ""
   service_account_name: ""
+
+syncWave:
+  deployment: 1
+
+jobs:
+  - name: db-migration
+    syncWave: 0
+    command: ["./migrate.sh"]
+    resources:
+      requests:
+        memory: "256Mi"
+        cpu: "100m"
+      limits:
+        memory: "512Mi"
+        cpu: "200m"
