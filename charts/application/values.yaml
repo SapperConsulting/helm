@@ -33,7 +33,7 @@ syncWave:
 jobs:
   - name: db-migration
     syncWave: 0
-    command: ["./migrate.sh"]
+    command: ["/migrate.sh"]
     resources:
       requests:
         memory: "256Mi"
