@@ -7,6 +7,6 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: {{ .Values.app.service.name }}
-  minReplicas: 2
-  maxReplicas: 10
+  minReplicas: 3
+  maxReplicas: 3
   targetCPUUtilizationPercentage: 50
