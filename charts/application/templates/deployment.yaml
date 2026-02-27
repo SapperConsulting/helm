@@ -42,6 +42,7 @@ spec:
           {{- end }}
           ports:
             - containerPort: {{ .Values.app.pod.port }}
+            - containerPort: 8001
           livenessProbe:
             httpGet:
               path: {{ .Values.app.pod.healthCheckPath }}
