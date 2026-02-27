@@ -23,6 +23,12 @@ image:
   tag:
   url:
 
+metrics:
+  enabled: true
+  port: 8001
+  path: /metrics
+  interval: 30s
+
 iam:
   service_account_role: ""
   service_account_name: ""

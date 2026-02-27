@@ -1,0 +1,17 @@
+{{- if .Values.metrics.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: {{ .Values.app.service.name }}
+  labels:
+    app: {{ .Values.app.service.name }}
+    release: grafana
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Values.app.service.name }}
+  podMetricsEndpoints:
+    - targetPort: {{ .Values.metrics.port }}
+      path: {{ .Values.metrics.path | default "/metrics" }}
+      interval: {{ .Values.metrics.interval | default "30s" }}
+{{- end }}
