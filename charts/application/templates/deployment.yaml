@@ -16,6 +16,10 @@ spec:
     metadata:
       labels:
         app: {{ .Values.app.service.name }}
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8001"
+        prometheus.io/path: "/metrics"
     spec:
       tolerations:
         - key: node_group_type
